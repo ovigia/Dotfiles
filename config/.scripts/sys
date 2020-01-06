@@ -1,0 +1,45 @@
+#!/bin/bash
+normal="tput sgr0"
+grey="tput setaf 248"
+blue="tput setaf 4"
+
+tput setaf 0; tput setab 1; printf " | "; $normal; printf "   ";tput setaf 1; printf "| ";$grey
+printf "Host ";$blue; printf ".......... ";$normal; cat /sys/class/dmi/id/product_name
+
+printf "   "; tput setaf 0; tput setab 9; printf " | ";$normal;tput setaf 9; printf "| ";$grey
+printf "System ";$blue; printf "........ ";$normal; hostnamectl | grep "Operating System" | cut -d ' ' -f5-
+
+tput setaf 0; tput setab 2; printf " | "; $normal; printf "   ";tput setaf 2; printf "| ";$grey
+printf "Kernel ";$blue; printf "........ ";$normal; uname -r
+
+printf "   "; tput setaf 0; tput setab 10; printf " | ";$normal;tput setaf 10; printf "| ";$grey
+printf "Uptime ";$blue; printf "........ ";$normal;uptime -p | sed 's/up //' #uptime | cut -f 4-5 -d " " | cut -f 1 -d ","
+
+tput setaf 0; tput setab 3; printf " | "; $normal; printf "   ";tput setaf 3; printf "| ";$grey
+printf "Packages ";$blue; printf "...... ";$normal; pacman -Qq | wc -l
+
+
+printf "   "; tput setaf 0; tput setab 11; printf " | ";$normal;tput setaf 11; printf "| \n";$grey
+
+tput setaf 0; tput setab 4; printf " | "; $normal; printf "   ";tput setaf 4; printf "| ";$grey
+printf "WM ";$blue; printf "............ ";$normal; tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2
+
+printf "   "; tput setaf 0; tput setab 12; printf " | ";$normal;tput setaf 12; printf "| ";$grey
+printf "Shell ";$blue; printf "......... ";$normal; $SHELL --version | cut -f 1-2 -d " "
+
+tput setaf 0; tput setab 5; printf " | "; $normal; printf "   ";tput setaf 5; printf "| ";$grey
+printf "Terminal ";$blue; printf "...... ";$normal; printf "$TERMINAL\n"
+
+printf "   "; tput setaf 0; tput setab 13; printf " | ";$normal;tput setaf 13; printf "| \n";$grey
+
+tput setaf 0; tput setab 6; printf " | "; $normal; printf "   ";tput setaf 6; printf "| ";$grey
+printf "CPU usage ";$blue; printf "..... ";$normal;cat /proc/stat | awk '/cpu/{printf("%.2f%\n"), ($2+$4)*100/($2+$4+$5)}' |  awk '{print $0}' | head -1
+
+printf "   "; tput setaf 0; tput setab 14; printf " | ";$normal;tput setaf 14; printf "| ";$grey
+printf "Memory ";$blue; printf "........ ";$normal;free -h | awk '/^Mem:/ {printf $3 " / " $2 "\n"}'
+
+tput setaf 0; tput setab 7; printf " | "; $normal; printf "   ";tput setaf 7; printf "| ";$grey
+printf "Swap ";$blue; printf ".......... ";$normal;free -h | awk '/^Swap:/ {printf $3 " / " $2 "\n"}'
+
+printf "   "; tput setaf 0; tput setab 15; printf " | ";$normal;tput setaf 15; printf "| ";$grey
+printf "Disk ";$blue; printf ".......... ";$normal;df -h / | tail -1 | awk '{print $3 " / " $2 " (" $5 ")"}'

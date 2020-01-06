@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ANS="$(printf "lock\nshutdown\nreboot\nexit" | rofi -dmenu -p 'System')"
+case "$ANS" in
+	lock) betterlockscreen --lock blur;;
+	shutdown) shutdown now;;
+	reboot) reboot;;
+	exit) bspc quit
+esac

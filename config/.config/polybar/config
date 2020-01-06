@@ -1,0 +1,249 @@
+;   ____       _       _
+;  |  _ \ ___ | |_   _| |__   __ _ _ __
+;  | |_) / _ \| | | | | '_ \ / _` | '__|
+;  |  __/ (_) | | |_| | |_) | (_| | |
+;  |_|   \___/|_|\__, |_.__/ \__,_|_|
+;                |___/
+
+;~~~~~~~~~~~~~~~~~~~
+; Colors & Settings
+;~~~~~~~~~~~~~~~~~~~
+[color]
+white = #FFFFFF
+black = #000000
+
+bg = #161821
+fg = #C6C8D1
+blue = #84A0C6
+
+; bg = #000000
+; fg = #007700
+; alt = #00bb00
+
+[general]
+padding = 2
+
+;~~~~~~~~~~~~~~~~~~
+; Top Bar Settings
+;~~~~~~~~~~~~~~~~~~
+[bar/top]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 20
+fixed-center = true
+
+background = ${color.bg}
+foreground = ${color.fg}
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "DejaVu Sans Mono For Powerline:pixelsize=8;2"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-2 = "Font Awesome 5 Brands:pixelsize=10;2"
+
+modules-left = bspwm
+modules-center = mpd
+modules-right = xkeyboard pulseaudio xbacklight network eth battery date
+
+wm-restack = bspwm
+
+override-redirect = false
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[settings]
+screenchange-reload = true
+
+;~~~~~~~~~~~~~~~~~~
+; BSPWM Workspaces
+;~~~~~~~~~~~~~~~~~~
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+format = <label-state><label-mode>
+
+label-monitor = %name%
+
+label-focused = %index% %icon%
+label-focused-foreground = ${color.blue}
+label-focused-padding = 1
+
+label-occupied = %index% %icon%
+label-occupied-padding = 1
+
+label-urgent = %index% %icon%
+label-urgent-padding = 1
+
+label-empty =
+label-empty-foreground = ${color.fg}
+label-empty-padding = 0
+
+;~~~~~
+; MPD
+;~~~~~
+[module/mpd]
+type = internal/mpd
+
+host = localhost
+port = 6600
+
+interval = 2
+
+format-online = <label-song>
+
+label-song = %{F#84A0C6}%{F-} %artist% - %title%
+label-offline = %{F#84A0C6}%{F-} mpd is offline
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+;~~~~~~~~~~
+; Keyboard
+;~~~~~~~~~~
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${color.blue}
+
+label-layout = %layout%
+
+;~~~~~~~~~~~
+; Backlight
+;~~~~~~~~~~~
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+;<bar>
+label = %{F#84A0C6}%{F-} %percentage%%
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~
+; Wireless Network / WiFi
+;~~~~~~~~~~~~~~~~~~~~~~~~~~
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 1
+
+format-connected-prefix-foreground = ${color.blue}
+format-connected-prefix = "  "
+format-disconnected = <label-disconnected>
+
+format-connected = <label-connected>
+label-connected = %essid%
+label-disconnected = not connected
+label-disconnected-foreground = #66ffffff
+
+[module/eth]
+type = internal/network
+interface = wwp0s29u1u6i6
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${color.fg-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+
+;~~~~~~~~~~~~~~
+; Date + Clock
+;~~~~~~~~~~~~~~
+[module/date]
+type = internal/date
+interval = 30
+label =  %time%
+time = %{F#84A0C6}%{F-} %I:%M %p
+time-alt = %{F#84A0C6}%{F-} %Y-%m-%d
+
+;~~~~~~~~~~~~
+; PulseAudio
+;~~~~~~~~~~~~
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+ramp-volume-foreground = ${color.blue}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+format-muted = <ramp-volume> <label-muted>
+label-muted-foreground = #666
+
+;~~~~~~~~~
+; Battery
+;~~~~~~~~~
+[module/battery]
+type = internal/battery
+label-padding = 30
+
+; Use $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+full-at = 98
+poll-interval = 1
+bar-capacity-width = 10
+
+format-charging    = %{F#84A0C6}<animation-charging>%{F-} <label-charging>
+format-discharging = %{F#84A0C6}<ramp-capacity>%{F-} <label-discharging>
+format-full        = %{F#84A0C6}<ramp-capacity>%{F-} <label-full>
+
+ramp-capacity-0 = %{F#de373d}
+ramp-capacity-1 = %{F#de373d}
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-framerate = 500
+
+;~~~~~~~~~~~~
+; Power Menu
+;~~~~~~~~~~~~
+[module/powermenu]
+type = custom/script
+exec = echo ""
+format-foreground = ${color.blue}
+click-left = ~/.config/polybar/scripts/powermenu.sh
+
+; vim:ft=dosini

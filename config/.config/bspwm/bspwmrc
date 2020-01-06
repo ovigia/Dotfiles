@@ -1,0 +1,84 @@
+#! /bin/sh
+#   _
+#  | |__  ___ _ ____      ___ __ ___
+#  | '_ \/ __| '_ \ \ /\ / / '_ ` _ \
+#  | |_) \__ \ |_) \ V  V /| | | | | |
+#  |_.__/|___/ .__/ \_/\_/ |_| |_| |_|
+#            |_|
+
+#===========
+# Autostart
+#===========
+# Polisch signs
+setxkbmap pl &
+
+# Wallpaper
+feh --bg-scale ~/Dotfiles/config/.config/bspwm/wallpaper.png
+# hsetroot -solid '#161821'
+
+# Set normal cursor
+xsetroot -cursor_name left_ptr
+
+# use the capslock as escape
+xmodmap ~/Dotfiles/config/.xmodmap
+
+# Programs
+picom &
+sxhkd &
+udiskie &
+dunst &
+firefox &
+discord &
+mpd &
+~/.config/polybar/launch.sh &
+termite --class scratchpad -e ~/Dotfiles/config/.config/bspwm/scripts/scratch &
+
+#===============
+# Configuration
+#===============
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc desktop -f 1
+
+# Mouse setings
+bspc config pointer_modifier mod4
+bspc config focus_follows_pointer true
+bspc config pointer_action3 resize_side
+bspc config pointer_action2 resize_corner
+bspc config pointer_action1 move
+
+# Automatic scheme
+bspc config automatic_scheme spiral
+bspc config initial_polarity first_child
+# bspc config external_rules_command ~/.config/bspwm/scripts/autopresel
+
+# Split Ratio
+bspc config split_ratio          0.52
+
+# Disable border when is only one window
+bspc config single_monocle true
+
+# Gaps && Border
+bspc config border_width 1
+bspc config window_gap 0
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# Colorscheme
+bspc config normal_border_color "#161821"
+bspc config focused_border_color "#84A0C6"
+bspc config presel_feedback_color "#1e2132"
+
+# bspc config normal_border_color "#000000"
+# bspc config focused_border_color "#007700"
+# bspc config presel_feedback_color "#111111"
+
+#======
+# Rule
+#======
+bspc rule -a firefox desktop='^2' follow=off
+bspc rule -a qutebrowser desktop='^2'
+bspc rule -a discord desktop='^3'
+bspc rule -a Steam desktop='^5'
+bspc rule -a network-manager state=floating sticky=on
+bspc rule -a scratchpad sticky=on state=floating hidden=on locked=on
+bspc rule -a lock sticky=on state=floating locked=on

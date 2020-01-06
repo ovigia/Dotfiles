@@ -1,0 +1,90 @@
+#   _____                   _ _
+#  |_   _|__ _ __ _ __ ___ (_) |_ ___
+#    | |/ _ \ '__| '_ ` _ \| | __/ _ \
+#    | |  __/ |  | | | | | | | ||  __/
+#    |_|\___|_|  |_| |_| |_|_|\__\___|
+
+[options]
+scroll_on_output = true
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+font = DejaVu Sans Mono for Powerline 14
+scrollback_lines = 10000
+search_wrap = true
+icon_name = utilities-terminal
+geometry = 800x550
+clickable_url = true
+cursor_blink = false
+cursor_shape = block
+filter_unmatched_urls = true
+
+[colors]
+background = #161821
+foreground = #c6c8d1
+cursor_foreground = #161821
+cursor = #c6c8d1
+
+# black
+color0  = #161821
+color8  = #22262e
+
+# red
+color1  = #e27878
+color9  = #e98989
+
+# green
+color2  = #b4be82
+color10 = #c0ca8e
+
+# yellow
+color3  = #e2a478
+color11 = #e9b189
+
+# blue
+color4  = #84a0c6
+color12 = #91acd1
+
+# magenta
+color5  = #a093c7
+color13 = #ada0d3
+
+# cyan
+color6  = #89b8c2
+color14 = #95c4ce
+
+# white
+color7  = #c6c8d1
+color15 = #d2d4de
+
+# Hack
+# foreground  = #00bb00
+# background  = #000000
+# cursor = #00bb00
+
+# color0 = #000000
+# color8 = #001100
+
+# color1 = #007700
+# color9 = #007700
+
+# color2  = #00bb00
+# color10 = #00bb00
+
+# color3  = #007700
+# color11 = #007700
+
+# color4  = #009900
+# color12 = #009900
+
+# color5  = #00bb00
+# color13 = #00bb00
+
+# color6  = #005500
+# color14 = #005500
+
+# color7  = #00bb00
+# color15 = #00ff00

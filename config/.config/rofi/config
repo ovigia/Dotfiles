@@ -1,0 +1,4 @@
+rofi.modi: drun,window
+rofi.show-icons: true
+rofi.m: 0
+rofi.theme: icebergs

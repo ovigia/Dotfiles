@@ -1,0 +1,77 @@
+#       _          _ _
+#   ___| |__   ___| | |
+#  / __| '_ \ / _ \ | |
+#  \__ \ | | |  __/ | |
+#  |___/_| |_|\___|_|_|
+
+# Aliases
+alias ls='ls --color=auto --group-directories-first'
+alias nc='ncmpcpp'
+alias ra='ranger'
+alias vi='nvim'
+alias vim='nvim'
+alias nvi='nvim'
+alias nm='neomutt'
+alias ab='abook -C $HOME/.config/abook/abookrc --datafile $HOME/.config/abook/addressbook'
+alias please='sudo $(fc -ln -1)'
+alias woman='man'
+alias sudo='sudo '
+alias doas='doas '
+# alias t='torsocks '
+alias torsocks='torsocks '
+alias af="alias-finder"
+alias out="pkill -kill -u jan"
+alias hc="history -c"
+alias stow-config='stow -Sv config/ --ignore personal.muttrc --ignore aliases'
+alias unstow-config='stow -Dv config/ --ignore personal.muttrc --ignore aliases'
+alias screen='scrot ~/Images/Screenshots/$(date +%H:%M:%S).png --line style=dash,width=3 --select && notify-send "Screenshot saved!"'
+
+# tmux
+alias t="tmux"
+alias tn="tmux new -s"
+alias tls="tmux ls"
+alias ta="tmux a -t"
+alias tk="tmux kill-session -t"
+alias tks="tmux kill-server"
+
+# cURL aliases
+wttr()    { curl wttr.in/"${1}" ;}
+weather() { curl wttr.in/"${1}" ;}
+cht() { curl cht.sh/"${1}" ;}
+cheat() { curl cht.sh/"${1}" ;}
+alias surl='curl -F c=@- https://ptpb.pw/u <<<'
+alias shorturl='curl -F c=@- https://ptpb.pw/u <<<'
+alias pastebin-txt='curl -F c=@- https://ptpb.pw/ <<<'
+alias pastebin-file='curl -F c=@- -F p=1 https://ptpb.pw/ <'
+
+# youtube-dl aliases
+alias yt-video='youtube-dl -f bestvideo -o "%(title)s.%(ext)s" -4'
+alias yt-webm='youtube-dl -f webm -o "%(title)s.%(ext)s" -4'
+alias yt-audio='youtube-dl -f bestaudio -o "%(title)s.%(ext)s" -4'
+alias yt-opus='youtube-dl -x --audio-format opus -o "%(title)s.%(ext)s" -4'
+alias yt-vorbis='youtube-dl -x --audio-format vorbis -o "%(title)s.%(ext)s" -4'
+alias yt-thumbnail='youtube-dl --write-thumbnail --skip-download -o "%(title)s.%(ext)s" -4'
+
+# Pacmna aliases
+alias pac="sudo pacman"
+alias paci="sudo pacman -S"
+alias pacu="sudo pacman -Rns"
+# alias paci="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+# alias pacu="pacman -Qq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -Rns"
+alias owo="yay -Slq | fzf -m --preview 'yay -Si {1}' | yay -S -"
+alias uwu="yay -Qq | fzf -m --preview 'yay -Si {1}' | xargs -ro sudo pacman -Rns"
+alias pacser="yay -Slq | fzf -m --preview 'yay -Si {1}' | yay -Si -"
+alias pacsel="pacman -Q | cut -f 1 -d ' ' | fzf -m --preview 'yay -Si {1}' | yay -Si -"
+alias paco="sudo pacman -Rns $(pacman -Qtdq)"
+
+# Mount, umount
+alias mount="udiskie-mount"
+alias umount="udiskie-umount"
+alias usb-name="sudo mlabel -i" #::name
+
+# fzf "aliases"
+f()   { find . -type f | fzf | xargs -r "$EDITOR" ;}
+cdf() { cd "$(find . -type d | fzf --preview '')" ;}
+raf() { ranger "$(find . -type d | fzf --preview '')" ;}
+
+# vim: filetype=zsh
