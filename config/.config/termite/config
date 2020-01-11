@@ -12,7 +12,7 @@ mouse_autohide = true
 allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
-font = DejaVu Sans Mono for Powerline 14
+font = DejaVu Sans Mono 14
 scrollback_lines = 10000
 search_wrap = true
 icon_name = utilities-terminal
@@ -59,32 +59,3 @@ color14 = #95c4ce
 # white
 color7  = #c6c8d1
 color15 = #d2d4de
-
-# Hack
-# foreground  = #00bb00
-# background  = #000000
-# cursor = #00bb00
-
-# color0 = #000000
-# color8 = #001100
-
-# color1 = #007700
-# color9 = #007700
-
-# color2  = #00bb00
-# color10 = #00bb00
-
-# color3  = #007700
-# color11 = #007700
-
-# color4  = #009900
-# color12 = #009900
-
-# color5  = #00bb00
-# color13 = #00bb00
-
-# color6  = #005500
-# color14 = #005500
-
-# color7  = #00bb00
-# color15 = #00ff00

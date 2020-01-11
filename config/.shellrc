@@ -16,15 +16,11 @@ alias ab='abook -C $HOME/.config/abook/abookrc --datafile $HOME/.config/abook/ad
 alias please='sudo $(fc -ln -1)'
 alias woman='man'
 alias sudo='sudo '
-alias doas='doas '
 # alias t='torsocks '
 alias torsocks='torsocks '
 alias af="alias-finder"
-alias out="pkill -kill -u jan"
+alias out="pkill -kill -u $(whoami)"
 alias hc="history -c"
-alias stow-config='stow -Sv config/ --ignore personal.muttrc --ignore aliases'
-alias unstow-config='stow -Dv config/ --ignore personal.muttrc --ignore aliases'
-alias screen='scrot ~/Images/Screenshots/$(date +%H:%M:%S).png --line style=dash,width=3 --select && notify-send "Screenshot saved!"'
 
 # tmux
 alias t="tmux"
@@ -53,15 +49,14 @@ alias yt-vorbis='youtube-dl -x --audio-format vorbis -o "%(title)s.%(ext)s" -4'
 alias yt-thumbnail='youtube-dl --write-thumbnail --skip-download -o "%(title)s.%(ext)s" -4'
 
 # Pacmna aliases
+alias up="sudo pacman -Syu"
 alias pac="sudo pacman"
 alias paci="sudo pacman -S"
 alias pacu="sudo pacman -Rns"
-# alias paci="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-# alias pacu="pacman -Qq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -Rns"
 alias owo="yay -Slq | fzf -m --preview 'yay -Si {1}' | yay -S -"
-alias uwu="yay -Qq | fzf -m --preview 'yay -Si {1}' | xargs -ro sudo pacman -Rns"
+alias uwu="yay -Qq | fzf -m --preview 'yay -Si {1}' | xargs -ro yay -Rns"
 alias pacser="yay -Slq | fzf -m --preview 'yay -Si {1}' | yay -Si -"
-alias pacsel="pacman -Q | cut -f 1 -d ' ' | fzf -m --preview 'yay -Si {1}' | yay -Si -"
+alias pacsel="yay -Qq | fzf -m --preview 'yay -Si {1}' | yay -Si -"
 alias paco="sudo pacman -Rns $(pacman -Qtdq)"
 
 # Mount, umount

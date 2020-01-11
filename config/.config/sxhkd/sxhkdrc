@@ -21,7 +21,7 @@ super + d
 
 # Screenshot
 F12
-	scrot ~/Images/Screenshots/$(date +%H:%M:%S).png && notify-send "Screenshot saved!"
+	screenshot
 
 # Backlight
 alt + shift + {k,j}

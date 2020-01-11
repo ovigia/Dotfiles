@@ -17,10 +17,10 @@ wallpaper &
 # hsetroot -solid '#161821'
 
 # Set normal cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # use the capslock as escape
-xmodmap ~/Dotfiles/config/.xmodmap
+xmodmap ~/Dotfiles/config/.xmodmap &
 
 # Programs
 picom &

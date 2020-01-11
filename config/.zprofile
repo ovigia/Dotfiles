@@ -5,7 +5,7 @@
 #  | .__/|_|  \___/|_| |_|_|\___|
 #  |_|
 
-export PATH=$HOME/.scripts:$PATH
+export PATH=$HOME/.script:$PATH
 
 # Less pager colors
 export LESS_TERMCAP_mb=$(tput setaf 4)
@@ -30,9 +30,6 @@ export FZF_DEFAULT_OPTS='
                   rougify {} ||
                   cat {}) 2> /dev/null | head -500"
 '
-# --color fg:#007700,bg:#000000,hl:#00bb00,fg+:#007700,bg+:#002200,hl+:#00bb00
-# --color info:#00bb00,prompt:#00bb00,spinner:#00bb00,pointer:#00bb00,marker:#00bb00
-# --height 96% --reverse --preview "cat {}"
 export FZF_DEFAULT_COMMAND="find ."
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_OPTS='--preview-window=:0%'

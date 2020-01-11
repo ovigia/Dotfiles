@@ -119,6 +119,25 @@ augroup CursorLine
 	au WinLeave * setlocal nocursorline
 augroup END
 
+" Statusline
+set laststatus=2
+hi StatusLine   ctermbg=8 ctermfg=blue cterm=NONE
+hi StatusLineNC ctermbg=8 ctermfg=blue cterm=NONE
+hi User1        ctermbg=NONE ctermfg=blue
+hi User2        ctermbg=NONE ctermfg=blue
+hi User3        ctermbg=NONE ctermfg=blue
+hi User4        ctermbg=8    ctermfg=blue
+set statusline+=\ %y                " File type
+set statusline+=\ %1*\              " Padding & switch colour
+set statusline+=%t\                 " File name
+set statusline+=%M                  " Modified flag
+set statusline+=\ %2*\              " Padding & switch colour
+set statusline+=%=                  " Switch to right-side
+set statusline+=\ %3*\              " Padding & switch colour
+set statusline+=%p%%                " Current line
+set statusline+=\ %4*\              " Padding & switch colour
+set statusline+=%{&fileencoding?&fileencoding:&encoding}\   " File coding
+
 " Lightline - statusline
 hi StatusLine       ctermbg=8   ctermfg=4    cterm=NONE
 hi StatusLineNC     ctermbg=8   ctermfg=4    cterm=NONE
@@ -346,7 +365,7 @@ map <C-A-t> :vsplit term://zsh<CR>
 tnoremap <C-e> <C-\><C-n>
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger='<C-a>'
+let g:UltiSnipsExpandTrigger='<C-z>'
 let g:UltiSnipsJumpForwardTrigger='<C-s>'
 let g:UltiSnipsJumpBackwardTrigger='<C-g>'
 let g:UltiSnipsListSnippets='<C-p>'
