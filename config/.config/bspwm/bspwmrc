@@ -13,7 +13,7 @@
 setxkbmap pl &
 
 # Wallpaper
-feh --bg-scale ~/Dotfiles/config/.config/bspwm/wallpaper.png
+wallpaper &
 # hsetroot -solid '#161821'
 
 # Set normal cursor
@@ -31,7 +31,7 @@ firefox &
 discord &
 mpd &
 ~/.config/polybar/launch.sh &
-termite --class scratchpad -e ~/Dotfiles/config/.config/bspwm/scripts/scratch &
+termite --class scratchpad -e scratch &
 
 #===============
 # Configuration
@@ -49,7 +49,6 @@ bspc config pointer_action1 move
 # Automatic scheme
 bspc config automatic_scheme spiral
 bspc config initial_polarity first_child
-# bspc config external_rules_command ~/.config/bspwm/scripts/autopresel
 
 # Split Ratio
 bspc config split_ratio          0.52
