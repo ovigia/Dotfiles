@@ -27,7 +27,6 @@ window {
    border:           1;
    border-color:     @maincolor;
    padding:          0;
-   width:            40%;
    anchor:           center;
    location:         center;
    y-offset:         20;
@@ -50,7 +49,6 @@ textbox {
 }
 
 listview {
-   lines:       10;
    columns:     1;
    fixed-height: true;
    dynamic: false;
